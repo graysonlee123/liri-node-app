@@ -4,7 +4,16 @@ Using this app, users will be able to search songs on spotify, bands nearby, and
 
 ## Getting Started
 
-Download the repo and run the main javascript app using Node.js.
+Download the repo. Add your own .env file with code like so for Spotify:
+
+```
+# Spotify API keys
+
+SPOTIFY_ID=your_spotify_id
+SPOTIFY_SECRET=your_spotify_secret
+```
+
+ ...and run the main javascript app using Node.js.
 
 ## Deployment
 
