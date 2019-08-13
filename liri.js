@@ -8,10 +8,9 @@ userInput = process.argv.join(" ");
 
 switch (command) {
     case "concert-this":
-        concertThis(userInput);
-        return console.log("Conerty!");
+        return concertThis(userInput);
     case "spotify-this-song":
-        return console.log("Sporify");
+        return console.log("Spotify");
     case "movie-this": 
         return console.log("Movie");
     case "do-what-it-says": 
@@ -21,8 +20,17 @@ switch (command) {
 }
 
 function concertThis (args) {
-    let queryUrl = `http://rest.bandsintown.com/artists/${args}/?app_id=codingbootcamp`
+    console.log("Loading results...");
+    let queryUrl = `http://rest.bandsintown.com/artists/${args}/events?app_id=codingbootcamp`
     axios.get(queryUrl).then(function(data) {
-        console.log(data);
-    })
+        if (data.data != "") {
+            console.log(data.data);
+        } else {
+            console.log("Nothing found, or that band isn't playing.");
+        };
+    });
+};
+
+function spotify(args) {
+    
 }
