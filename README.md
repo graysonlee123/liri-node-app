@@ -1,6 +1,20 @@
 # Liri / Node App
 
-Using this CLI app, users will be able to search songs on spotify, bands nearby, and movies.
+Using this CLI app, users will be able to search songs, concerts, and movies. 
+
+## Usage
+
+The app is structured based off of the user's input after ...
+
+`node liri.js`
+
+... by taking a command ( `spotify-this-song`, `concert-this`, `movie-this`, and `do-what-it-says`) and the argument, which can be a song name, movie, or band. It will return relevent data based on the command and arguments.
+
+#### Example ####
+
+`node liri.js spotify-this-song viva la vida` will give the user information about Viva la Vida.
+
+_`do-what-it-says` does not require arguments._
 
 ## Getting Started
 
@@ -13,7 +27,7 @@ SPOTIFY_ID=your_spotify_id
 SPOTIFY_SECRET=your_spotify_secret
 ```
 
- ...and run the main javascript app using Node.js.
+ ...and run the main javascript app using Node.js by issuing the commands listed in "Notes about the app". 
 
 ## Built With
 
@@ -26,16 +40,14 @@ SPOTIFY_SECRET=your_spotify_secret
 
 ## Screenshots
 
-<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true" alt="drawing" width="400"/>
+<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true" alt="drawing" width="450"/>
 </br>
 <img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/movie-this%20iron%20man.PNG?raw=true" alt="drawing" width="600"/>
 </br>
-<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true" alt="drawing" width="500"/>
+<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true" alt="drawing" width="475"/>
 
 More screenshots in the `assets/images/appscreenshots` folder
 
 ## Authors
 
 * **Grayson Gantek** - [graysonlee123](https://github.com/graysonlee123)
-
-See also the list of [contributors](#) who participated in this project.
