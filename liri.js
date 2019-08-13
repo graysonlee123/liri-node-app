@@ -15,7 +15,7 @@ switch (command) {
     case "spotify-this-song":
         return spotifyThis(userInput);
     case "movie-this":
-        return console.log("Movie");
+        return movieThis(userInput);
     case "do-what-it-says":
         return console.log("Do what it says!");
     default:
@@ -24,7 +24,7 @@ switch (command) {
 
 function concertThis(args) {
     console.log("Loading results...");
-    let queryUrl = `http://rest.bandsintown.com/artists/${args}/events?app_id=codingbootcamp`
+    const queryUrl = `http://rest.bandsintown.com/artists/${args}/events?app_id=codingbootcamp`;
     axios.get(queryUrl).then(function (data) {
         const shows = data.data;
 
@@ -63,3 +63,25 @@ function spotifyThis(args) {
     });
 }
 
+function movieThis(args) {
+    console.log("Loading movie search results...");
+    console.log(typeof(args) + " and looks like \"" + args + "\"");
+
+    displayMovie(args || 'Mr. Nobody');
+
+    function displayMovie(movieQuery) {
+        const queryUrl = `http://www.omdbapi.com/?apikey=trilogy&t=${movieQuery}`;
+
+        axios.get(queryUrl).then(function(data) {
+        data = data.data;
+
+        console.log(`Movie title: "${data.Title}"`);
+        console.log(`IMDB Rating: "${data.imdbRating}"`);
+        console.log(`Rottom Tomatoes Rating: "${data.Ratings[1].Value}"`);
+        console.log(`Country produced: "${data.Country}"`);
+        console.log(`Movie language: "${data.Language}"`);
+        console.log(`Movie plot: "${data.Plot}"`);
+        console.log(`Actors: "${data.Actors}"`);
+        });
+    };
+}
