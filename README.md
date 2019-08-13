@@ -1,6 +1,6 @@
 # Liri / Node App
 
-Using this app, users will be able to search songs on spotify, bands nearby, and movies.
+Using this CLI app, users will be able to search songs on spotify, bands nearby, and movies.
 
 ## Getting Started
 
@@ -14,10 +14,6 @@ SPOTIFY_SECRET=your_spotify_secret
 ```
 
  ...and run the main javascript app using Node.js.
-
-## Deployment
-
-This is a CLI interface. 
 
 ## Built With
 

@@ -1,4 +1,5 @@
 require("dotenv").config();
+const fs = require("fs");
 const axios = require("axios");
 const Spotify = require('node-spotify-api');
 const keys = require("./keys.js");
@@ -9,6 +10,10 @@ let command = process.argv[2];
 let userInput = process.argv.splice(0, 3);
 userInput = process.argv.join(" ");
 
+fs.appendFile(__dirname + "/log.txt", `\n${command} ${userInput}`, function(err) {
+
+});
+
 switch (command) {
     case "concert-this":
         return concertThis(userInput);
@@ -17,12 +22,13 @@ switch (command) {
     case "movie-this":
         return movieThis(userInput);
     case "do-what-it-says":
-        return console.log("Do what it says!");
+        return whatItSays();
     default:
         return console.log("Enter concert-this, spotify-this-song, movie-this, or do-what-it-says");
 }
 
 function concertThis(args) {
+    if (!args) return console.log("Must enter a band to lookup! Example: node liri.js concert-this Tame Impala");
     console.log("Loading results...");
     const queryUrl = `http://rest.bandsintown.com/artists/${args}/events?app_id=codingbootcamp`;
     axios.get(queryUrl).then(function (data) {
@@ -41,31 +47,35 @@ function concertThis(args) {
 };
 
 function spotifyThis(args) {
-    spotify.search({ type: 'track', query: args }, function (err, data) {
-        if (err) return spotifyThis("The Sign Ace of Base");
 
-        const obj = data.tracks.items[0];
-        const artists = obj.artists;
-        const trackName = obj.name;
-        const songPreview = obj.preview_url;
-        const songAlbum = obj.album.name;
-
-        //Artists
-        artists.forEach(item => {
-            console.log("Written by: " + item.name);
-        })
-        //Song name
-        console.log("Track name: " + trackName);
-        //Link to spotify preview
-        console.log("Link to song preview: " + songPreview);
-        //Album name
-        console.log("From the album: " + songAlbum);
-    });
-}
+    displaySpotifySong(args || "The Sign Ace of Base");
+    
+    function displaySpotifySong(songQuery) {
+        spotify.search({ type: 'track', query: songQuery }, function (err, data) {
+            if (err) return (err);
+    
+            const obj = data.tracks.items[0];
+            const artists = obj.artists;
+            const trackName = obj.name;
+            const songPreview = obj.preview_url;
+            const songAlbum = obj.album.name;
+    
+            //Artists
+            artists.forEach(item => {
+                console.log("Written by: " + item.name);
+            })
+            //Song name
+            console.log("Track name: " + trackName);
+            //Link to spotify preview
+            console.log("Link to song preview: " + songPreview);
+            //Album name
+            console.log("From the album: " + songAlbum);
+        });
+    };
+};
 
 function movieThis(args) {
     console.log("Loading movie search results...");
-    console.log(typeof(args) + " and looks like \"" + args + "\"");
 
     displayMovie(args || 'Mr. Nobody');
 
@@ -76,6 +86,7 @@ function movieThis(args) {
         data = data.data;
 
         console.log(`Movie title: "${data.Title}"`);
+        console.log(`Release: "${data.Released}"`)
         console.log(`IMDB Rating: "${data.imdbRating}"`);
         console.log(`Rottom Tomatoes Rating: "${data.Ratings[1].Value}"`);
         console.log(`Country produced: "${data.Country}"`);
@@ -84,4 +95,24 @@ function movieThis(args) {
         console.log(`Actors: "${data.Actors}"`);
         });
     };
+}
+
+function whatItSays() {
+    console.log("Do what it says! A random command is being entered...");
+    fs.readFile(__dirname + "/random.txt", "utf8", function(err, data) {
+        if (err) return console.log(err);
+        const rndCmds = data.split(";");
+        const chosenIdx = Math.floor(Math.random() * (rndCmds.length));
+        const idxSplit = rndCmds[chosenIdx].split(",");
+        const params = idxSplit[1].replace(/['"]+/g, '');;
+        const cmd = idxSplit[0];
+
+        console.log("Command: " + cmd + "    Paramaters: " + params);
+
+        switch (cmd) {
+            case "concert-this": return concertThis(params);
+            case "spotify-this-song": return spotifyThis(params);
+            case "movie-this": return movieThis(params);
+        }
+    });
 }
