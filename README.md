@@ -46,7 +46,7 @@ SPOTIFY_SECRET=your_spotify_secret
 </br>
 <img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true" alt="drawing" width="475"/>
 
-More screenshots in the `assets/images/appscreenshots` folder
+More screenshots in the `assets/images/app-screenshots` folder
 
 ## Authors
 
