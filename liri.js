@@ -12,7 +12,7 @@ switch (command) {
     case "concert-this":
         return concertThis(userInput);
     case "spotify-this-song":
-        return spotifySearch(userInput);
+        return spotifyThis(userInput);
     case "movie-this":
         return console.log("Movie");
     case "do-what-it-says":
@@ -25,15 +25,21 @@ function concertThis(args) {
     console.log("Loading results...");
     let queryUrl = `http://rest.bandsintown.com/artists/${args}/events?app_id=codingbootcamp`
     axios.get(queryUrl).then(function (data) {
-        if (data.data != "") {
-            console.log(data.data);
+        const shows = data.data;
+
+        if (shows != "") {
+            // If they have shows...
+            shows.forEach((item, i) => {
+                const venue = item.venue;
+                console.log(`\n${i + 1}) Showing at ${venue.name || "(no venue name provided)"} \n Located in ${venue.city} ${venue.region || "(no region provided)"} (${venue.country}) \n at ${item.datetime}`);
+            });
         } else {
             console.log("Nothing found, or that band isn't playing.");
         };
     });
 };
 
-function spotifySearch(args) {
+function spotifyThis(args) {
     spotify.search({ type: 'track', query: args }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
