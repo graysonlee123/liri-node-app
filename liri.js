@@ -2,6 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const Spotify = require('node-spotify-api');
 const keys = require("./keys.js");
+var moment = require('moment');
 var spotify = new Spotify(keys.spotify);
 
 let command = process.argv[2];
@@ -31,7 +32,7 @@ function concertThis(args) {
             // If they have shows...
             shows.forEach((item, i) => {
                 const venue = item.venue;
-                console.log(`\n${i + 1}) Showing at ${venue.name || "(no venue name provided)"} \n Located in ${venue.city} ${venue.region || "(no region provided)"} (${venue.country}) \n at ${item.datetime}`);
+                console.log(`\n${i + 1}) Showing at ${venue.name || "(no venue name provided)"} \n Located in ${venue.city} ${venue.region || ""} (${venue.country}) \n at ${moment(item.datetime)}`);
             });
         } else {
             console.log("Nothing found, or that band isn't playing.");
