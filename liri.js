@@ -42,9 +42,7 @@ function concertThis(args) {
 
 function spotifyThis(args) {
     spotify.search({ type: 'track', query: args }, function (err, data) {
-        if (err) {
-            return console.log('Error occurred: ' + err);
-        }
+        if (err) return spotifyThis("The Sign Ace of Base");
 
         const obj = data.tracks.items[0];
         const artists = obj.artists;
@@ -64,3 +62,4 @@ function spotifyThis(args) {
         console.log("From the album: " + songAlbum);
     });
 }
+
