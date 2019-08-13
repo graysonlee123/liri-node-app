@@ -24,6 +24,13 @@ SPOTIFY_SECRET=your_spotify_secret
 * [Moment](https://www.npmjs.com/package/moment) - for formatting Dates and Time
 * [DotEnv](https://www.npmjs.com/package/dotenv) - for loading environment variables
 
+## Screenshots
+
+![concert-this](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true)
+![movie-this](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/movie-this%20iron%20man.PNG?raw=true)
+![spotify-this-song](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true)
+
+
 ## Authors
 
 * **Grayson Gantek** - [graysonlee123](https://github.com/graysonlee123)
