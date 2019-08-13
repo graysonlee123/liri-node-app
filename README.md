@@ -26,15 +26,13 @@ SPOTIFY_SECRET=your_spotify_secret
 
 ## Screenshots
 
-![concert-this](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true)
-![movie-this](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/movie-this%20iron%20man.PNG?raw=true)
-![spotify-this-song](https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true)
+<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true" alt="drawing" width="400"/>
+</br>
+<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/movie-this%20iron%20man.PNG?raw=true" alt="drawing" width="600"/>
+</br>
+<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true" alt="drawing" width="500"/>
 
-<div>
-<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/concert-this%20young%20the%20giant.PNG?raw=true" alt="concert-this" align="left" height="auto" width="500px">
-<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/movie-this%20iron%20man.PNG?raw=true" alt="movie-this" align="left" height="auto" width="500px">
-<img src="https://github.com/graysonlee123/liri-node-app/blob/master/assets/images/app-screenshots/spotify-this-song%20politik.PNG?raw=true" alt="spotify-this-song" align="left" height="auto" width="500px">
-</div>
+More screenshots in the `assets/images/appscreenshots` folder
 
 ## Authors
 
