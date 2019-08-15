@@ -11,7 +11,7 @@ let userInput = process.argv.splice(0, 3);
 userInput = process.argv.join(" ");
 
 fs.appendFile(__dirname + "/log.txt", `\n${command} ${userInput}`, function(err) {
-
+    if (err) return console.log(err);
 });
 
 switch (command) {
